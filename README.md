@@ -3,8 +3,10 @@ Go Asticlectron with vuejs example app
 
 run
 ```
+cd vue
 yarn
 yarn build
+cd ..
 astilectron-bundler -v
 vue-app.exe -v -dt
 ```
