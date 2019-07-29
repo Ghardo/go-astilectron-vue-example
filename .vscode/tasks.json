@@ -1,0 +1,190 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "bind",
+            "type": "shell",
+            "command": "${GOPATH}/bin/astilectron-bundler",
+            "windows": {
+                "command": "D:\\gostuff\\bin\\astilectron-bundler"
+            },
+            "args": [
+                "bd",
+                "-v"
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": [
+                "vue-build"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "vue-build",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/vue/ && yarn build",
+            "windows": {
+                "command": "cd ${workspaceFolder}\\vue\\ ; yarn build"
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": [],
+            "problemMatcher": []
+        },
+        {
+            "label": "vue-serve",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/vue/ && yarn serve",
+            "windows": {
+                "command": "cd ${workspaceFolder}\\vue\\ ; yarn serve"
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": [],
+            "problemMatcher": []
+        },
+        {
+            "label": "clear-cache",
+            "type": "shell",
+            "command": "${GOPATH}/bin/astilectron-bundler",
+            "windows": {
+                "command": "D:\\gostuff\\bin\\astilectron-bundler"
+            },
+            "args": [
+                "cc",
+                "-v"
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "${GOPATH}/bin/astilectron-bundler",
+            "windows": {
+                "command": "D:\\gostuff\\bin\\astilectron-bundler.exe"
+            },
+            "args": [
+                "-v"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": [
+                "vue-build"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "vue-exec",
+            "type": "shell",
+            "command": "${workspaceFolder}/output/linux-amd64/vue-app",
+            "windows": {
+                "command": "${workspaceFolder}\\output\\windows-amd64\\vue-app.exe"
+            },
+            "args": [
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": [
+                "bind"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "vue-exec-devtools",
+            "type": "shell",
+            "command": "${workspaceFolder}/output/linux-amd64/vue-app",
+            "windows": {
+                "command": "${workspaceFolder}\\output\\windows-amd64\\vue-app.exe"
+            },
+            "args": [
+                "-v",
+                "-dt"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": [
+                "bind"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "${workspaceFolder}/output/linux-amd64/vue-app",
+            "windows": {
+                "command": "${workspaceFolder}\\output\\windows-amd64\\vue-app.exe"
+            },
+            "args": [
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": [
+                "build"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "run-devtools",
+            "type": "shell",
+            "command": "${workspaceFolder}/output/linux-amd64/vue-app",
+            "windows": {
+                "command": "${workspaceFolder}\\output\\windows-amd64\\vue-app.exe"
+            },
+            "args": [
+                "-v",
+                "-dt"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": [
+                "build"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

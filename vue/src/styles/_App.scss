@@ -1,0 +1,73 @@
+body, html {
+  margin:0;
+  padding:0;
+  background: #04202C;
+}
+
+#vue, #app {
+  position:relative;
+  width:100%;
+  height:auto !important;
+  min-height:100%;
+  color: $color3;
+}
+
+#header {
+  height: 50px;
+  
+  span {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    line-height: 50px;
+    font-weight: bold;
+    color: $color3;
+    vertical-align: middle;
+    margin-left: 30px;
+  }
+
+  #headnav {
+      width: 60px;
+      float: left;
+  }
+}
+
+#navigation {
+  float: left;
+  width:60px;
+}
+
+.navicon {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  transition-duration: 0.2s;
+  transition-property: transform;
+  cursor: pointer;
+  font-size: 40px;
+}
+
+.navicon-inactive, .menu-icon {
+  color: $color3;
+}
+
+.navicon-active {
+  color: $color6;
+}
+
+.navicon:hover, .navicon:focus,  .navicon:active {
+  transform: scale(1.2);
+  color: $color4;
+}
+
+#main {
+  margin-left: 50px;
+  height: 469px;
+  overflow: auto;
+  border-top: 2px double $color5;
+  border-left: 2px double $color5;
+  border-radius: 10px 0 0 0;
+  background-color: $color1;
+  box-shadow: inset 0px 0px 10px 0px #000000;
+  padding: 25px;
+  max-width: 682px;
+}
