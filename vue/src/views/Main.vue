@@ -28,10 +28,10 @@ export default {
   },
   methods: {
     onViewActivated: function(payload) {
-      console.log("onVieActivated")
+      console.log("onViewActivated")
     },
     onViewDeactivated: function(payload) {
-      console.log("onVieActivated")
+      console.log("onViewDeactivated")
     },
     onSampleMessage1: function(payload) {
       console.log("onSampleMessage1")

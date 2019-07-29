@@ -19,6 +19,7 @@
 
 <script>
 import Astor  from '@/mixins/Astor.js'
+import Storage  from '@/mixins/Storage.js'
 
 import MainIcon from 'vue-material-design-icons/Palette.vue'
 import SettingsIcon from 'vue-material-design-icons/Settings.vue'
@@ -29,7 +30,7 @@ import SettingsView from '@/views/Settings'
 
 export default {
   name: 'app',
-  mixins: [Astor],
+  mixins: [Astor, Storage],
   components: {
     MainView,
     SettingsView,
@@ -50,13 +51,18 @@ export default {
       this.activeView = view;
     },
   },
-  mounted: function() {
+  mounted: function() {   
     /**
      * Timining problem: use nextTick emit view activated event on start up.
      */
     this.$nextTick(() => {
       this.__astor().emit('view.' + this.activeView + '.activated');
     });
+
+    var activeView = this.storage().get('activeView');
+    if(activeView) {
+      this.activeView = activeView;
+    }
   },
   watch: {
     /**
@@ -64,10 +70,12 @@ export default {
      * for view activated and deactivated
      */
     activeView: function (val) {
-      if(localStorage.activeView) {
-        this.__astor().emit('view.' + localStorage.activeView + '.deactivated');
+      var activeView = this.storage().get('activeView');
+      if(activeView) {
+        this.__astor().emit('view.' + activeView + '.deactivated');
       }
-      localStorage.activeView = val;
+
+      this.storage().set('activeView', val);
       this.__astor().emit('view.' + val + '.activated');
     }
   }

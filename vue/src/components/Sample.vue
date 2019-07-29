@@ -31,6 +31,7 @@ export default {
         }
     },
     mounted: function() {
+        console.log(this.appConfig.appname);
         this.__astor().listen('sample.message3.callback', this.changeText);
     }
 }
